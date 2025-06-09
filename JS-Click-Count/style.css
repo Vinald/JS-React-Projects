@@ -1,0 +1,49 @@
+#container {
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: white;
+    font-size: larger;
+    height: 1200px;
+}
+
+#btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btnRed,
+#btnGreen,
+#btnYellow {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: white;
+}
+
+#btnRed {
+    background: blue;
+}
+
+#btnGreen {
+    background: green;
+}
+
+#btnYellow {
+    background: yellow;
+    color: black;
+}
+
+#btnClear {
+    height: 300px;
+    width: 300px;
+    background: red;
+    color: white;
+}
