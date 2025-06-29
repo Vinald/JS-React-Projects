@@ -14,7 +14,7 @@ function Search({ foodData, setFoodData }) {
             const data = await response.json();
             setFoodData(data.results);
         };
-        // fetchFood();
+        fetchFood();
     }, [query, setFoodData]);
 
     return (
