@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./RecipeDetails.module.css";
+import Ingredient from "../ingredient/Ingredient.jsx";
 
 function RecipeDetails({ food, loading }) {
     return (
         <>
             <div className={styles.recipeCard}>
-                <h1>{food.title}</h1>
-                <img src={food.image} alt={food.name} />
+                <h1 className={styles.recipeTitle}>{food.title}</h1>
+                <img className={styles.recipeImage} src={food.image} alt={food.name} />
+            </div>
+            <div className={styles.recipeDetail}>
                 <span>
                     <strong>{food.readyInMinutes} Minutes</strong>
                 </span>
@@ -14,22 +17,15 @@ function RecipeDetails({ food, loading }) {
                     <strong>Serves {food.servings}</strong>
                 </span>
                 <span>{food.vegetarian ? "Vegetarian" : "Non Vegetarian"}</span>
-                <span>{food.vegan ? "Vegan Meal" : ""}</span>
+                <span>{food.vegan ? "Vegan Meal" : "Non Vegan Meal"}</span>
+                <span>${food.pricePerServing} Per serving</span>
             </div>
-            <div>
-                <span>${food.pricePerServing / 100}</span>
-            </div>
-            <div>
-                <h3>Ingredients</h3>
-                <ol>
-                    {food.extendedIngredients &&
-                        food.extendedIngredients.map((ingredient) => (
-                            <li key={ingredient.id}>{ingredient.original}</li>
-                        ))}
-                </ol>
-            </div>
-            <div>
-                (<h3>Instructions</h3>
+            
+            <h3>Ingredients</h3>
+            <Ingredient food={food} />
+            
+            <h3>Instructions</h3>
+            <div className={styles.instructions}>
                 {loading ? (
                     <p>"Loading Instructions..."</p>
                 ) : (
